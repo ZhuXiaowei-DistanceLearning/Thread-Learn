@@ -1,0 +1,13 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,com/jmh/JMHSample_01_HelloWorld.bigWirte
+inline,com/jmh/JMHSample_01_HelloWorld.bigWitecon
+inline,com/jmh/JMHSample_01_HelloWorld.conWriteSsize
+inline,com/jmh/JMHSample_01_HelloWorld.cononWriteGet
+inline,com/jmh/JMHSample_01_HelloWorld.copyonWriteGet
+inline,com/jmh/JMHSample_01_HelloWorld.copyonWriteSize
+inline,com/jmh/JMHSample_01_HelloWorld.copyonWriteWrite
+inline,com/jmh/JMHSample_01_HelloWorld.setup

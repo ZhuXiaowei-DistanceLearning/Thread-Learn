@@ -1,0 +1,7 @@
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 64 com.jmh.generated.JMHSample_01_HelloWorld_copyonWriteGet_jmhTest S 14 copyonWriteGet S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 63 com.jmh.generated.JMHSample_01_HelloWorld_cononWriteGet_jmhTest S 13 cononWriteGet S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 66 com.jmh.generated.JMHSample_01_HelloWorld_copyonWriteWrite_jmhTest S 16 copyonWriteWrite S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 65 com.jmh.generated.JMHSample_01_HelloWorld_copyonWriteSize_jmhTest S 15 copyonWriteSize S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 60 com.jmh.generated.JMHSample_01_HelloWorld_bigWitecon_jmhTest S 10 bigWitecon S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 63 com.jmh.generated.JMHSample_01_HelloWorld_conWriteSsize_jmhTest S 13 conWriteSsize S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 31 com.jmh.JMHSample_01_HelloWorld S 58 com.jmh.generated.JMHSample_01_HelloWorld_bigWirte_jmhTest S 8 bigWirte S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
