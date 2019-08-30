@@ -16,7 +16,7 @@ public class StampedLockPCDemo {
             @Override
             public void run() {
                 long readLong = lock.writeLock();
-                // 
+                //
                 LockSupport.parkNanos(60000000000L);
                 lock.unlockWrite(readLong);
             }
