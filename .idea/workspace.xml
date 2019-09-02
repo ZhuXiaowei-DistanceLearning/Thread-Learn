@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aaeacca8-fe90-4950-9db3-9e4f3eecdba1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Ats/UnsafeArrayList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/akaa/Geeter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/akaa/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/akaa/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/akaa/samplehello.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java8/MySubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java8/accumulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java8/map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/HashMapMultiThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/PlusTast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ReadWriteLockDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ReenterLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ReenterLockCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ScheduleExecutorServiceDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/SemapDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/SimpleWN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ThreadGroupName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/ThreadPoolDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/demo1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/test/demo2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/samplehello.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/java8/StampedLockPCDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java8/StampedLockPCDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/BenchmarkList" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/BenchmarkList" afterDir="false" />
-    </list>
+    <list default="true" id="aaeacca8-fe90-4950-9db3-9e4f3eecdba1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/java8/accumulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
+            <state relative-caret-position="650">
               <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/akaa/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="300">
               <caret line="15" column="93" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Ats/UnsafeArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="11">
+              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/test/demo2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="200">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -119,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/java8/StampedLockPCDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
+            <state relative-caret-position="425">
               <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -249,8 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -412,10 +384,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
@@ -550,6 +525,7 @@
       <workItem from="1567078488882" duration="581000" />
       <workItem from="1567126026335" duration="3306000" />
       <workItem from="1567144774756" duration="3388000" />
+      <workItem from="1567162489116" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="today content">
       <created>1567071285861</created>
@@ -562,13 +538,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28908000" />
+    <option name="totallyTimeSpent" value="28931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33041576" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3380744" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -780,12 +756,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/samplehello.conf">
       <provider selected="true" editor-type-id="text-editor">
@@ -933,33 +909,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/test/demo1.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="439">
+          <caret line="460" column="19" selection-start-line="460" selection-start-column="19" selection-end-line="460" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/test/demo2.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java8/StampedLockPCDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="-6945">
+          <caret line="281" column="51" selection-start-line="281" selection-start-column="48" selection-end-line="281" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#5774#5775#0" expanded="true" />
+            <element signature="e#5798#5799#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/java8/accumulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
+        <state relative-caret-position="650">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -993,7 +963,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/akaa/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="300">
           <caret line="15" column="93" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1001,28 +971,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/test/demo2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="460" column="19" selection-start-line="460" selection-start-column="19" selection-end-line="460" selection-end-column="19" />
+        <state relative-caret-position="200">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Vector.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java8/StampedLockPCDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6945">
-          <caret line="281" column="51" selection-start-line="281" selection-start-column="48" selection-end-line="281" selection-end-column="51" />
+        <state relative-caret-position="425">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding>
-            <element signature="e#5774#5775#0" expanded="true" />
-            <element signature="e#5798#5799#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/test/demo1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Ats/UnsafeArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="11">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
