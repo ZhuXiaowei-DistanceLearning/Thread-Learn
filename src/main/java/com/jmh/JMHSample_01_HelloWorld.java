@@ -1,10 +1,7 @@
 package com.jmh;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -74,10 +71,19 @@ public class JMHSample_01_HelloWorld {
        concurrentLinkedQueue2.remove(0);
     }
 
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void measureThroughput() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(100);
+    }
 
 
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder().include(JMHSample_01_HelloWorld.class.getSimpleName()).forks(4).build();
-        new Runner(opt).run();
+
+    public static void main(String[] args) throws RunnerException, InterruptedException {
+//        Options opt = new OptionsBuilder().include(JMHSample_01_HelloWorld.class.getSimpleName()).forks(4).build();
+//        new Runner(opt).run();
+        JMHSample_01_HelloWorld s = new JMHSample_01_HelloWorld();
+        s.measureThroughput();
     }
 }

@@ -133,7 +133,6 @@
 
    ```
    lock.lockInterruptibly()
-   
    ```
 
 2. 锁申请等待限时
@@ -147,14 +146,12 @@
    }finally{
        lock.unlock();
    }
-   
    ```
 
 3. 公平锁
 
    ```java
    public ReentrantLock(boolean fair) // 公平锁,需要维护一个有序队列，实现成本比较高，性能比较低
-   
    ```
 
 4. API
@@ -174,14 +171,13 @@
 ### 3.1.2 重入锁的好搭档：Condition
 
 1. 与重入锁相关联，通过lock接口的Condition new Condition()方法可以生成一个与当前重入锁绑定的Condition实例,用重入锁的对象来获得此对象
-2. ![1567393746883](D:\code\IDEA CODE\Thread-Learn\README.assets\1567393746883.png)
+2. ![1567393746883](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567393746883.png)
 
 ### 3.1.3  信号量(Semaphore)
 
 1. ```java
    public Semaphore(int permits) // 指定同时能申请多少个许可
    public Semaphore(int permits, boolean fair) // 第二个参数可以指定是否公平
-   
    ```
 
 2. ```java
@@ -190,20 +186,18 @@
    public boolean tryAcquire() // 尝试获取许可
    public boolean tryAcquire(long timeout, TimeUnit unit)
    public void release() // 释放许可
-   
    ```
 
 3. 信号量是对锁的扩展，可以指定多个线程，同时访问某一个资源
 
 ### 3.1.4 ReadWriteLock 读写锁
 
-1. ![1567394933710](D:\code\IDEA CODE\Thread-Learn\README.assets\1567394933710.png)
+1. ![1567394933710](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567394933710.png)
 
 2. ```java
    ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock()
    Lock readlock = readWriteLock.readLock();
    Lock writelock = readWriteLock.writeLock();
-   
    ```
 
 ### 3.1.5 倒计数器CountDownLatch
@@ -214,7 +208,6 @@
    public CountDownLatch(int count) // 需要count个线程完成任务后等待在CountDownLatch上的线程才能继续执行
    CountDownLatch end = new CountDownLatch(10);
    end.countDown(); // 通知CountDownLatch一个线程已经完成任务,倒计数减1
-   
    ```
 
 ### 3.1.6 循环栅栏CyclicBarrier
@@ -223,7 +216,6 @@
 
 2. ```java
    public CyclicBarrier(int parties, Runnable barrierAction)
-   
    ```
 
 ### 3.1.7 线程阻塞工具类LockSupport
@@ -232,26 +224,259 @@
 
 ### 3.1.8 Guava和RateLimiter限流
 
+1. ```java
+   package com.guava;
+   
+   import com.google.common.util.concurrent.RateLimiter;
+   
+   /**
+    * @author zxw
+    * @date 2019/9/3 9:22
+    */
+   public class RateLimiterDemo {
+       static RateLimiter limiter = RateLimiter.create(2);
+       static int i = 0;
+       public static class Task implements Runnable{
+   
+           @Override
+           public void run() {
+               System.out.println(System.currentTimeMillis());
+               System.out.println(i);
+               i++;
+           }
+       }
+   
+       public static void main(String[] args) {
+           for (int i = 0; i < 50; i++) {
+               // 限流
+   //            limiter.acquire();
+               // 令牌
+               if(!limiter.tryAcquire()){
+                   continue;
+               }
+               Thread thread = new Thread(new Thread(new Task()));
+           }
+       }
+   }
+   ```
 
+   
 
 ## 3.2 线程池
 
-如果当前运行的线程少于corePoolSize，则创建新线程来执行任务（注意，执行这一步骤
-需要获取全局锁）。
-2）如果运行的线程等于或多于corePoolSize，则将任务加入BlockingQueue。
-3）如果无法将任务加入BlockingQueue（队列已满），则创建新的线程来处理任务（注意，执
-行这一步骤需要获取全局锁）。
-4）如果创建新线程将使当前运行的线程超出maximumPoolSize，任务将被拒绝，并调用
-RejectedExecutionHandler.rejectedExecution()方法。
+1. 如果当前运行的线程少于corePoolSize，则创建新线程来执行任务（注意，执行这一步骤需要获取全局锁）。
 
-ThreadPoolExecutor采取上述步骤的总体设计思路，是为了在执行execute()方法时，尽可能
-地避免获取全局锁（那将会是一个严重的可伸缩瓶颈）。在ThreadPoolExecutor完成预热之后
-（当前运行的线程数大于等于corePoolSize），几乎所有的execute()方法调用都是执行步骤2，而
-步骤2不需要获取全局锁。
+2. 如果运行的线程等于或多于corePoolSize，则将任务加入BlockingQueue。
+
+3. 如果无法将任务加入BlockingQueue(队列已满)，则创建新的线程来处理任务(注意，执行这一步骤需要获取全局锁)。
+
+4. 如果创建新线程将使当前运行的线程超出maximumPoolSize，任务将被拒绝，并调xRejectedExecutionHandler.rejectedExecution()方法。
+
+5. ThreadPoolExecutor采取上述步骤的总体设计思路，是为了在执行execute()方法时，尽可能地避免获取全局锁(那将会是一个严重的可伸缩瓶颈)。在ThreadPoolExecutor完成预热之后(当前运行的线程数大于等于corePoolSize)
+
+6. ![1567475072047](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475072047.png)
+
+7. ![1567475097776](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475097776.png)
+
+8. ```java
+   public ThreadPoolExecutor(int corePoolSize,
+                                 int maximumPoolSize,
+                                 long keepAliveTime,
+                                 TimeUnit unit,
+                                 BlockingQueue<Runnable> workQueue) {
+           this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
+                Executors.defaultThreadFactory(), defaultHandler);
+       }
+   
+    public ThreadPoolExecutor(int corePoolSize,
+                                 int maximumPoolSize,
+                                 long keepAliveTime,
+                                 TimeUnit unit,  
+                             	BlockingQueue<Runnable> workQueue,// 任务队列
+   ThreadFactory threadFactory, // 线程工厂
+   RejectedExecutionHandler handler)// 拒绝策略
+   ```
+
+### 3.2.1 任务队列
+
+1. 直接提交队列
+   1. SynchronousQueue对象提供，没有容量，每个插入操作都要等待一个相应的删除操作，反之，每一个删除操作都要等待对应的插入操作
+   2. 提交的任务不会被真实地保存，而总是将新任务提交给线程执行，如果没有空闲的进程，则尝试创建新的进程，如果进程数量达到最大值，则执行拒绝策略
+2. 有界的任务队列
+   1. ArrayBlockingQueue,如果大于corePoolSize,则将新任务加入等待队列。若等待队列已满，无法加入，则在总线程数不大于maximumPoolSize的前提下，创建新的线程执行任务，若大于maximumPoolSize，则执行拒绝策略。除非系统非常繁忙，否则要确保线程数维持在corePoolSize
+3. 无界的任务队列
+   1. LinkedBlockingQueue，除非系统资源耗尽，否则无界的任务队列不存在任务入队失败情况。当系统的线程数达到corePoolSize时，线程池会生成新的线程执行任务，但当系统的线程数达到corePoolSize后，就不会继续增加了，后序线程放入等待队列。
+4. 优先任务队列
+   1. 可以控制任务的执行先后顺序，是一个特殊的无界队列
+
+### 3.2.2 拒绝策略
+
+1. ![1567477666355](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477666355.png)
+2. ![1567477680348](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477680348.png)
+3. 可以通过扩展RejectedExecutionHandler接口实现拒绝策略
+
+### 3.2.3 自定义线程创建ThreadFactory
+
+1. ```java
+   Thread newThread(Runnable r);
+   new ThreadPoolExecutor(...,...,...,...,...,new ThreadFactory(){
+       public ThreadFactory(){
+           
+       }
+   })
+   ```
+
+2. 扩展线程池
+
+   ```java
+   new ThreadPoolExecutor(5,5,0L,TimeUnit.SECONDS,new LinkedBlockingDeque<>()){
+               @Override
+               protected void beforeExecute(Thread t, Runnable r) {
+                   super.beforeExecute(t, r);
+               }
+   
+               @Override
+               protected void afterExecute(Runnable r, Throwable t) {
+                   super.afterExecute(r, t);
+               }
+   
+               @Override
+               protected void terminated() {
+                   super.terminated();
+               }
+           };
+   ```
+
+3. 优化线程池数量
+
+   1. ![1567478156316](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567478156316.png)
+
+   2. 自定义扩展线程池
+
+      ```java
+      package com.pool;
+      
+      import java.util.concurrent.*;
+      
+      /**
+       * @author zxw
+       * @date 2019/9/3 10:37
+       */
+      public class TraceThreadPoolExecutor extends ThreadPoolExecutor {
+          public TraceThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
+              super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
+          }
+      
+          @Override
+          public void execute(Runnable command) {
+              super.execute(command);
+          }
+      
+          @Override
+          public Future<?> submit(Runnable task) {
+              return super.submit(task);
+          }
+      
+          public Exception clientTrace() {
+              return new Exception("Client stack trace");
+          }
+      
+          private Runnable wrap(final Runnable task, final Exception clientStack, String clientThreadName) {
+              return new Runnable() {
+                  @Override
+                  public void run() {
+                      try {
+                          task.run();
+                      } catch (Exception e) {
+                          clientStack.printStackTrace();
+                          e.printStackTrace();
+                      }
+                  }
+              };
+          }
+      }
+      ```
+
+### 3.2.4 Fork/Join框架
+
+1. ![1567478706596](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567478706596.png)
+
+2. ```java
+   package com.pool;
+   
+   import java.util.concurrent.RecursiveTask;
+   
+   /**
+    * @author zxw
+    * @date 2019/9/3 10:45
+    */
+   public class CountTask extends RecursiveTask<Long> {
+       private static final int THRESHOLD = 10000;
+       private long start;
+       private long end;
+   
+       public CountTask(long start, long end) {
+           this.start = start;
+           this.end = end;
+       }
+   
+       @Override
+       protected Long compute() {
+           long sum = 0;
+           boolean canCompute = (end - start) < THRESHOLD;
+           if (canCompute) {
+               for (long i = start; i <= end; i++) {
+                   sum += i;
+               }
+           }
+           return null;
+       }
+   }
+   ```
+
+### 3.2.5 Guava线程池
+
+1. DirectExecutor线程池
+
+   ```java
+   public static void main(String[] args) {
+           Executor executor = MoreExecutors.directExecutor();
+           executor.execute(() -> System.out.println("I am running in " + Thread.currentThread().getName()));
+       }
+   ```
+
+2. Deamon线程池
+
+   1. ```
+      MoreExecutors.getExitingExecutorService(executor);
+      ```
+
+3. 对Future模式扩展
 
 ## 3.3 JDK的并发容器
 
+1. ConcurrentHashMap:线程安全的HashMap
+2. CopyOnWriteArrayLsit:读写List，远远优于Vector
+3. ConcurrentLinkedQueue:高效的并发队列，使用链表实现。线程安全的LinkedList
+4. BlockingQueue:通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合作为数据共享的通道
+   1. ![1567480826627](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567480826627.png)
+5. ConcurrentSkipListMap:跳表的实现。这是一个Map，使用跳表的数据结构进行快速查找。
+
 ## 3.4 JMH性能测试
+
+1. 模式
+   1. Throughput:整体吞吐量，表示1秒内可以执行多少次调用
+   2. AverageTime:调用的平均时间，指每一次调用所需要的时间
+   3. SampleTime:随机取样，最后输出取样结果的分布
+   4. SingleShotTime:只运行一次，用于测试冷启动时的性能
+2. 迭代
+   1. 一次迭代表示1秒，在这一秒内会不间断调用被测方法，并采样计算吞吐量、平均时间等
+3. 预热(Wramup)
+   1. 同一个方法在JIT编译前后的时间将会不同
+4. 状态(State)
+   1. 线程范文，也就是一个对象只会被一个线程访问，在多线程池测试时，会为每一个线程生成一个对象。另一种是基准测试范围，即多个线程共享一个实例。
+5. 配置类(Options/OptionsBuilder)
+   1. 测试开始前，首先要对测试进行配置。通常需要指定一些参数。比如测试类(include)、使用的进程个数(fork)、预热迭代次数(warmupIterations)
 
 ## 3.5 锁的优化
 

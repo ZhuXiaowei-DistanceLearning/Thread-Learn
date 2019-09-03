@@ -32,5 +32,22 @@ public class RejectThreadPoolDemo {
             es.submit(task);
             Thread.sleep(10);
         }
+
+        new ThreadPoolExecutor(5,5,0L,TimeUnit.SECONDS,new LinkedBlockingDeque<>()){
+            @Override
+            protected void beforeExecute(Thread t, Runnable r) {
+                super.beforeExecute(t, r);
+            }
+
+            @Override
+            protected void afterExecute(Runnable r, Throwable t) {
+                super.afterExecute(r, t);
+            }
+
+            @Override
+            protected void terminated() {
+                super.terminated();
+            }
+        };
     }
 }
