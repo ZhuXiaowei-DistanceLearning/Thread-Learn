@@ -1,9 +1,5 @@
 # 高并发编程
 
-@Author:zxw
-
-@School:吉首大学
-
 # 1.概念
 
 1. 同步和异步
@@ -133,6 +129,7 @@
 
    ```
    lock.lockInterruptibly()
+   
    ```
 
 2. 锁申请等待限时
@@ -146,12 +143,14 @@
    }finally{
        lock.unlock();
    }
+   
    ```
 
 3. 公平锁
 
    ```java
    public ReentrantLock(boolean fair) // 公平锁,需要维护一个有序队列，实现成本比较高，性能比较低
+   
    ```
 
 4. API
@@ -178,6 +177,7 @@
 1. ```java
    public Semaphore(int permits) // 指定同时能申请多少个许可
    public Semaphore(int permits, boolean fair) // 第二个参数可以指定是否公平
+   
    ```
 
 2. ```java
@@ -186,18 +186,20 @@
    public boolean tryAcquire() // 尝试获取许可
    public boolean tryAcquire(long timeout, TimeUnit unit)
    public void release() // 释放许可
+   
    ```
 
 3. 信号量是对锁的扩展，可以指定多个线程，同时访问某一个资源
 
 ### 3.1.4 ReadWriteLock 读写锁
 
-1. ![1567394933710](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567394933710.png)
+1. ![1567394933710](D:\code\IDEA CODE\Thread-Learn\README.assets\1567394933710-1567598439391.png)
 
 2. ```java
    ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock()
    Lock readlock = readWriteLock.readLock();
    Lock writelock = readWriteLock.writeLock();
+   
    ```
 
 ### 3.1.5 倒计数器CountDownLatch
@@ -208,6 +210,7 @@
    public CountDownLatch(int count) // 需要count个线程完成任务后等待在CountDownLatch上的线程才能继续执行
    CountDownLatch end = new CountDownLatch(10);
    end.countDown(); // 通知CountDownLatch一个线程已经完成任务,倒计数减1
+   
    ```
 
 ### 3.1.6 循环栅栏CyclicBarrier
@@ -216,6 +219,7 @@
 
 2. ```java
    public CyclicBarrier(int parties, Runnable barrierAction)
+   
    ```
 
 ### 3.1.7 线程阻塞工具类LockSupport
@@ -258,6 +262,7 @@
            }
        }
    }
+   
    ```
 
    
@@ -276,7 +281,7 @@
 
 6. ![1567475072047](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475072047.png)
 
-7. ![1567475097776](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475097776.png)
+7. ![1567475097776](D:\code\IDEA CODE\Thread-Learn\README.assets\1567475097776.png)
 
 8. ```java
    public ThreadPoolExecutor(int corePoolSize,
@@ -295,6 +300,7 @@
                              	BlockingQueue<Runnable> workQueue,// 任务队列
    ThreadFactory threadFactory, // 线程工厂
    RejectedExecutionHandler handler)// 拒绝策略
+   
    ```
 
 ### 3.2.1 任务队列
@@ -311,7 +317,7 @@
 
 ### 3.2.2 拒绝策略
 
-1. ![1567477666355](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477666355.png)
+1. ![1567477666355](D:\code\IDEA CODE\Thread-Learn\README.assets\1567477666355.png)
 2. ![1567477680348](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477680348.png)
 3. 可以通过扩展RejectedExecutionHandler接口实现拒绝策略
 
@@ -324,6 +330,7 @@
            
        }
    })
+   
    ```
 
 2. 扩展线程池
@@ -345,11 +352,12 @@
                    super.terminated();
                }
            };
+   
    ```
 
 3. 优化线程池数量
 
-   1. ![1567478156316](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567478156316.png)
+   1. ![1567478156316](D:\code\IDEA CODE\Thread-Learn\README.assets\1567478156316.png)
 
    2. 自定义扩展线程池
 
@@ -395,11 +403,12 @@
               };
           }
       }
+      
       ```
 
 ### 3.2.4 Fork/Join框架
 
-1. ![1567478706596](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567478706596.png)
+1. ![1567478706596](D:\code\IDEA CODE\Thread-Learn\README.assets\1567478706596.png)
 
 2. ```java
    package com.pool;
@@ -432,6 +441,7 @@
            return null;
        }
    }
+   
    ```
 
 ### 3.2.5 Guava线程池
@@ -443,12 +453,14 @@
            Executor executor = MoreExecutors.directExecutor();
            executor.execute(() -> System.out.println("I am running in " + Thread.currentThread().getName()));
        }
+   
    ```
 
 2. Deamon线程池
 
    1. ```
       MoreExecutors.getExitingExecutorService(executor);
+      
       ```
 
 3. 对Future模式扩展
@@ -459,8 +471,24 @@
 2. CopyOnWriteArrayLsit:读写List，远远优于Vector
 3. ConcurrentLinkedQueue:高效的并发队列，使用链表实现。线程安全的LinkedList
 4. BlockingQueue:通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合作为数据共享的通道
-   1. ![1567480826627](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567480826627.png)
+   1. ![1567480826627](D:\code\IDEA CODE\Thread-Learn\README.assets\1567480826627.png)
 5. ConcurrentSkipListMap:跳表的实现。这是一个Map，使用跳表的数据结构进行快速查找。
+
+### 3.3.1 CopyOnWriteArrayLsit和ConcurrentLinkedQueue
+
+1. 都是高并发队列
+2. ConcurrentLinkedQueue通过CAS操作和锁分离来提高系统性能
+3. CopyOnWriteArrayLsit通过写复制来提升并发能力
+
+### 3.3.2 BlockingQueue
+
+1. ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列。
+2. LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列。
+3. PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
+4. DelayQueue：一个使用优先级队列实现的无界阻塞队列
+5. SynchronousQueue：一个不存储元素的阻塞队列。
+6. LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+7. LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 
 ## 3.4 JMH性能测试
 
@@ -480,9 +508,87 @@
 
 ## 3.5 锁的优化
 
+1. 性能提升建议
+   1. 减少锁的持有时间:只在必要时进行同步，例如对整个方法中的某条语句加锁，这样能减少锁的持有时间
+2. 减小锁粒度
+   1. 减小锁定对象的范围，从而降低锁冲突的可能性，进而提高系统的并发能力
+3. 用读写分离锁来替换独占锁
+4. 锁分离
+   1. 使用两把锁对不同的方法进行加锁
+5. 锁粗化
+   1. 根据运行时的真实情况对各个资源点进行权衡折中的过程。锁粗化的思想和减少锁持有时间是相反的。
+
+### 3.5.1 Java虚拟机对锁的优化
+
+1. 锁偏向
+   1. 如果一个线程获得了锁，那么锁就进入了偏向模式。当这个线程再次请求锁的时候，无需做任何同步操作。使用Java虚拟机参数 -XX:+UseBiasedLocking 开启偏向锁
+2. 轻量级锁
+   1. 如果偏向锁失败，那么虚拟机不会立即挂起线程，它还会使用轻量级锁优化，它只是简单地将对象头部作为指针指向持有锁的线程堆栈的内部，来判断一个线程是否持有对象锁。如果线程获得轻量级锁成功，则可以顺利进入临界区。如果轻量级锁加锁失败，则表示其他线程抢先争夺到了锁，那么当前线程的锁清秋就会膨胀为重量级锁。
+3. 自旋锁
+   1. 当前线程无法获得锁，而且什么时候可以获得锁是一个未知数，也许在几个CPU时钟周期后就可以获得到锁。虚拟机会让当前线程做几个空循环，在经过若干次循环后，如果可以得到锁，那么久顺利进入临界区。如果还不能获得锁，才会真的将线程在操作系统层面挂起。
+4. 锁消除
+   1. 对运行上下文扫描，去除不可能存在共享资源竞争的锁。
+
 ## 3.6 ThreadLocal
 
+1. 如果共享对象对于竞争的处理容易引起性能损失，典型案例：随机数
+
 ## 3.7 无锁
+
+1. CAS(V,E,B)
+   1. V,E,N：V表示要更新的变量，E表示预期值，N表示新值。仅当V值等于E值时，才会将V的值设为N，如果V值和E值不同，说明已经有其他线程做了更新，则当前线程什么都不做。
+2. 好处
+   1. 比有锁拥有可好的性能
+   2. 避免死锁
+
+### 3.7.1 AtomicInteger
+
+1. ![1567564684691](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567564684691.png)
+2. ![1567564766971](D:\code\IDEA CODE\Thread-Learn\README.assets\1567564766971.png)
+
+### 3.7.2 AtomicReference
+
+1. 对对象进行原子操作
+
+### 3.7.2 AtmoicStampedReference
+
+1. ![1567565485213](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567565485213.png)
+
+### 3.7.3 AtomicIntegerArray
+
+1. AtomicIntegerArray
+
+2. AtomicLongArray
+
+3. AtomicReferenceArray
+
+4. ![1567565667934](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567565667934.png)
+
+5. ```java
+   static AtomicIntegerArray arr = new AtomicIntegerArray(10);
+   
+   ```
+
+### 3.7.4 AtomicIntegerFieldUpdater
+
+1. 在不改动原有代码的基础上，让普通的变量也享受CAS操作带来的线程安全性
+
+2. AtomicIntegerFieldUpdater
+
+   ```java
+   public final static AtomicIntegerFieldUpdater<Candidate> scoreUpdater = AtomicIntegerFieldUpdater.newUpdater(Candidate.class, "score");
+   
+   ```
+
+3. AtomicLongFieldUpdater
+
+4. AtomicReferenceFieldUpdater
+
+### 3.7.5 无锁的Vector
+
+1. 详情200页
+
+### 3.7.6 SynchronousQueue
 
 # 4. 并行模式与算法
 
@@ -504,10 +610,3 @@
 
 ## 4.9 NIO
 
-ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列。
-·LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列。
-·PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
-·DelayQueue：一个使用优先级队列实现的无界阻塞队列。
-·SynchronousQueue：一个不存储元素的阻塞队列。
-·LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
-·LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
