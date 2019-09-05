@@ -170,7 +170,7 @@
 ### 3.1.2 重入锁的好搭档：Condition
 
 1. 与重入锁相关联，通过lock接口的Condition new Condition()方法可以生成一个与当前重入锁绑定的Condition实例,用重入锁的对象来获得此对象
-2. ![1567393746883](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567393746883.png)
+2. ![1567393746883](README.assets\1567393746883.png)
 
 ### 3.1.3  信号量(Semaphore)
 
@@ -193,7 +193,7 @@
 
 ### 3.1.4 ReadWriteLock 读写锁
 
-1. ![1567394933710](D:\code\IDEA CODE\Thread-Learn\README.assets\1567394933710-1567598439391.png)
+1. ![1567394933710](README.assets\1567394933710-1567598439391.png)
 
 2. ```java
    ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock()
@@ -281,7 +281,7 @@
 
 6. ![1567475072047](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475072047.png)
 
-7. ![1567475097776](D:\code\IDEA CODE\Thread-Learn\README.assets\1567475097776.png)
+7. ![1567475097776](README.assets\1567475097776.png)
 
 8. ```java
    public ThreadPoolExecutor(int corePoolSize,
@@ -317,7 +317,7 @@
 
 ### 3.2.2 拒绝策略
 
-1. ![1567477666355](D:\code\IDEA CODE\Thread-Learn\README.assets\1567477666355.png)
+1. ![1567477666355](README.assets\1567477666355.png)
 2. ![1567477680348](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477680348.png)
 3. 可以通过扩展RejectedExecutionHandler接口实现拒绝策略
 
@@ -357,7 +357,7 @@
 
 3. 优化线程池数量
 
-   1. ![1567478156316](D:\code\IDEA CODE\Thread-Learn\README.assets\1567478156316.png)
+   1. ![1567478156316](README.assets\1567478156316.png)
 
    2. 自定义扩展线程池
 
@@ -408,7 +408,7 @@
 
 ### 3.2.4 Fork/Join框架
 
-1. ![1567478706596](D:\code\IDEA CODE\Thread-Learn\README.assets\1567478706596.png)
+1. ![1567478706596](README.assets\1567478706596.png)
 
 2. ```java
    package com.pool;
@@ -471,7 +471,7 @@
 2. CopyOnWriteArrayLsit:读写List，远远优于Vector
 3. ConcurrentLinkedQueue:高效的并发队列，使用链表实现。线程安全的LinkedList
 4. BlockingQueue:通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合作为数据共享的通道
-   1. ![1567480826627](D:\code\IDEA CODE\Thread-Learn\README.assets\1567480826627.png)
+   1. ![1567480826627](README.assets\1567480826627.png)
 5. ConcurrentSkipListMap:跳表的实现。这是一个Map，使用跳表的数据结构进行快速查找。
 
 ### 3.3.1 CopyOnWriteArrayLsit和ConcurrentLinkedQueue
@@ -544,7 +544,7 @@
 ### 3.7.1 AtomicInteger
 
 1. ![1567564684691](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567564684691.png)
-2. ![1567564766971](D:\code\IDEA CODE\Thread-Learn\README.assets\1567564766971.png)
+2. ![1567564766971](README.assets\1567564766971.png)
 
 ### 3.7.2 AtomicReference
 
