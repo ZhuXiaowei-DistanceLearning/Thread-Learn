@@ -1,3 +1,5 @@
+
+
 # 高并发编程
 
 # 1.概念
@@ -129,7 +131,6 @@
 
    ```
    lock.lockInterruptibly()
-   
    ```
 
 2. 锁申请等待限时
@@ -143,14 +144,12 @@
    }finally{
        lock.unlock();
    }
-   
    ```
 
 3. 公平锁
 
    ```java
    public ReentrantLock(boolean fair) // 公平锁,需要维护一个有序队列，实现成本比较高，性能比较低
-   
    ```
 
 4. API
@@ -170,14 +169,13 @@
 ### 3.1.2 重入锁的好搭档：Condition
 
 1. 与重入锁相关联，通过lock接口的Condition new Condition()方法可以生成一个与当前重入锁绑定的Condition实例,用重入锁的对象来获得此对象
-2. ![1567393746883](README.assets\1567393746883.png)
+2. ![1567393746883](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567393746883.png)
 
 ### 3.1.3  信号量(Semaphore)
 
 1. ```java
    public Semaphore(int permits) // 指定同时能申请多少个许可
    public Semaphore(int permits, boolean fair) // 第二个参数可以指定是否公平
-   
    ```
 
 2. ```java
@@ -186,20 +184,18 @@
    public boolean tryAcquire() // 尝试获取许可
    public boolean tryAcquire(long timeout, TimeUnit unit)
    public void release() // 释放许可
-   
    ```
 
 3. 信号量是对锁的扩展，可以指定多个线程，同时访问某一个资源
 
 ### 3.1.4 ReadWriteLock 读写锁
 
-1. ![1567394933710](README.assets\1567394933710-1567598439391.png)
+1. ![1567394933710](README.assets/1567394933710-1567734125745.png)
 
 2. ```java
    ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock()
    Lock readlock = readWriteLock.readLock();
    Lock writelock = readWriteLock.writeLock();
-   
    ```
 
 ### 3.1.5 倒计数器CountDownLatch
@@ -210,7 +206,6 @@
    public CountDownLatch(int count) // 需要count个线程完成任务后等待在CountDownLatch上的线程才能继续执行
    CountDownLatch end = new CountDownLatch(10);
    end.countDown(); // 通知CountDownLatch一个线程已经完成任务,倒计数减1
-   
    ```
 
 ### 3.1.6 循环栅栏CyclicBarrier
@@ -219,7 +214,6 @@
 
 2. ```java
    public CyclicBarrier(int parties, Runnable barrierAction)
-   
    ```
 
 ### 3.1.7 线程阻塞工具类LockSupport
@@ -279,9 +273,9 @@
 
 5. ThreadPoolExecutor采取上述步骤的总体设计思路，是为了在执行execute()方法时，尽可能地避免获取全局锁(那将会是一个严重的可伸缩瓶颈)。在ThreadPoolExecutor完成预热之后(当前运行的线程数大于等于corePoolSize)
 
-6. ![1567475072047](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567475072047.png)
+6. ![1567475072047](README.assets/1567475072047-1567734125746.png)
 
-7. ![1567475097776](README.assets\1567475097776.png)
+7. ![1567475097776](README.assets/1567475097776-1567734125746.png)
 
 8. ```java
    public ThreadPoolExecutor(int corePoolSize,
@@ -317,7 +311,7 @@
 
 ### 3.2.2 拒绝策略
 
-1. ![1567477666355](README.assets\1567477666355.png)
+1. ![1567477666355](README.assets/1567477666355-1567734125746.png)
 2. ![1567477680348](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567477680348.png)
 3. 可以通过扩展RejectedExecutionHandler接口实现拒绝策略
 
@@ -357,7 +351,7 @@
 
 3. 优化线程池数量
 
-   1. ![1567478156316](README.assets\1567478156316.png)
+   1. ![1567478156316](README.assets/1567478156316-1567734125746.png)
 
    2. 自定义扩展线程池
 
@@ -408,7 +402,7 @@
 
 ### 3.2.4 Fork/Join框架
 
-1. ![1567478706596](README.assets\1567478706596.png)
+1. ![1567478706596](README.assets/1567478706596-1567734125746.png)
 
 2. ```java
    package com.pool;
@@ -471,7 +465,7 @@
 2. CopyOnWriteArrayLsit:读写List，远远优于Vector
 3. ConcurrentLinkedQueue:高效的并发队列，使用链表实现。线程安全的LinkedList
 4. BlockingQueue:通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合作为数据共享的通道
-   1. ![1567480826627](README.assets\1567480826627.png)
+   1. ![1567480826627](README.assets/1567480826627-1567734125746.png)
 5. ConcurrentSkipListMap:跳表的实现。这是一个Map，使用跳表的数据结构进行快速查找。
 
 ### 3.3.1 CopyOnWriteArrayLsit和ConcurrentLinkedQueue
@@ -544,7 +538,7 @@
 ### 3.7.1 AtomicInteger
 
 1. ![1567564684691](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567564684691.png)
-2. ![1567564766971](README.assets\1567564766971.png)
+2. ![1567564766971](README.assets/1567564766971-1567734125746.png)
 
 ### 3.7.2 AtomicReference
 
@@ -552,7 +546,7 @@
 
 ### 3.7.2 AtmoicStampedReference
 
-1. ![1567565485213](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567565485213.png)
+1. ![1567565485213](README.assets/1567565485213-1567734125746.png)
 
 ### 3.7.3 AtomicIntegerArray
 
@@ -594,7 +588,24 @@
 
 ## 4.1 单例模式
 
+1. 任何对Singleton方法或字段的应用，都会导致类初始化,并创建instance实例![1567644960498](README.assets/1567644960498.png)
+2. 延迟加载
+   1. ![1567645049204](README.assets/1567645049204.png)
+   2. ![1567645056586](README.assets/1567645056586.png)
+3. ![1567645185050](C:\Users\zxw\Desktop\个人项目笔记\高并发编程.assets\1567645185050.png)
+
 ## 4.2 不变模式
+
+1. 一个对象一旦被创建，它的内部状态将永远不会发生改变。没有一个线程可以修改其内部状态和数据，同时其内部状态也绝不会自行发生改变。
+2. 条件
+   1. 当对象创建后，其内部状态和数据不再发生任何变化
+   2. 对象需要被共享，被多线程频繁访问
+3. 注意点
+   1. 去除setter方法以及所有修改自身属性的方法
+   2. 将所有属性设置为私有，并用final标记，确保其不可修改
+   3. 确保没有子类可以重载修改它的行为
+   4. 有一个可以创建完成对象的构造函数
+   5. ![1567645832914](README.assets/1567645832914.png)
 
 ## 4.3 生产者-消费者模式
 
@@ -602,11 +613,163 @@
 
 ## 4.5 Future模式
 
+1. ![1567646681938](README.assets/1567646681938.png)
+
+2. 异步调用
+
+3. Callable接口
+
+   ```java
+    @Override
+       public String call() throws Exception {
+           StringBuffer sb = new StringBuffer();
+           for (int i = 0; i < 10; i++) {
+               sb.append(result);
+               try {
+                   Thread.sleep(100);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+           return sb.toString();
+       }
+   
+   ```
+
+4. ```java
+   public static void main(String[] args) throws ExecutionException, InterruptedException {
+          FutureTask<String> future = new FutureTask<>(new RealDatajdk("a"));
+          ExecutorService pool = Executors.newFixedThreadPool(1);
+          pool.submit(future);
+          System.out.println("请求完毕");
+          try {
+              Thread.sleep(2000);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
+          System.out.println("数据=" + future.get());
+      }
+   
+   ```
+
+   ![1567648012028](README.assets/1567648012028.png)
+
+5. Guava对Future模式支持
+
+   1. ```java
+      public static void main(String[] args) throws InterruptedException {
+              ListeningExecutorService service = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
+              ListenableFuture<String> task = service.submit(new RealDatajdk("x"));
+              task.addListener(()->{
+                  System.out.println("异步处理成功");
+                  try {
+                      System.out.println(task.get());
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  } catch (ExecutionException e) {
+                      e.printStackTrace();
+                  }
+              },MoreExecutors.directExecutor());
+              System.out.println("main task done ......");
+              Thread.sleep(3000);
+          }
+      
+      ```
+
 ## 4.6 并行流水线
+
+1. 通过队列将操作拆分，一个线程处理一部分
 
 ## 4.7 并行搜索
 
 ## 4.8 并行排序
 
+1. 奇偶交换排序
+
 ## 4.9 NIO
 
+# 5.JAVA8与并发
+
+## 5.1 函数式编程
+
+1. FunctionalInterface注释
+
+2. 接口默认方法
+
+3. lambda表达式
+
+4. 方法引用
+
+5. Arrays
+
+   1. ![1567653121631](README.assets/1567653121631.png)
+
+6. Stream
+
+   1. 创建Stream
+   2. 中间操作
+   3. 终止操作
+
+7. ```java
+   IntConsumer intConsumer = System.out::println;
+   IntConsumer errComsumer = System.out::println;
+      Arrays.stream(arr).forEach(intConsumer.andThen(errComsumer));
+   
+   ```
+
+## 5.2 并行流与并行排序
+
+1. 使用并行流过滤数据
+2. 从集合得到并行流
+3. 并行排序
+
+## 5.3 增强的Future
+
+1. CompletableFuture实现了Futrue和CompletionStage
+
+2. ```java
+   public static Integer cacl(Integer para) {
+          try {
+              Thread.sleep(1000);
+              System.out.println(para * para);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
+          return para * para;
+      }
+      
+      public static void main(String[] args) throws  CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> cacl(50))
+          // 异常处理
+          .exceptionally(ex->{
+              System.out.println(ex.toString());
+              return 0;
+          })
+          // 组合多个CompletableFuture
+          .thenCompose((i)->CompletableFuture.supplyAsync(()->cacl(i)))
+          // 流失调用
+                  .thenApply((i)->Integer.toString(i))
+                  .thenAccept(System.out::println);
+          System.out.println("开始");
+          future.get();
+          System.out.println("结束");
+      }
+   
+   ```
+
+3. ![1567732899483](C:/Users/zxw/Desktop/个人项目笔记/高并发编程.assets/1567732899483.png)
+
+## 5.4 StampedLock 读写锁改进
+
+1. 使用CAS算法
+
+## 5.5 原子类增强
+
+### 5.5.1 LongAddr
+
+### 5.5.2 ConcurrentHashMap
+
+1. foreach操作
+2. reduce操作
+3. search操作
+4. mappingCount():返回Map中的条目总数，返回long
+5. newKeySize()：返回一个线程安全的Set
